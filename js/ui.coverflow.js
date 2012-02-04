@@ -84,11 +84,27 @@
 			
 			this.previous = this.current;
 			this.current = !isNaN(parseInt(item,10)) ? parseInt(item,10) : this.items.index(item);
-			
-
+			//alert(this.previous +" : " + this.current);
 			//Don't animate when clicking on the same item
-			if(this.previous == this.current) return false; 
-			
+			if(this.previous == this.current){
+				return false;
+			}
+			//Removing flipped class if present
+			$(this.items[this.previous]).find('.card').removeClass('flipped');
+			$(this.items[this.previous]).find('.front').css('z-index','10');
+			/*if(this.previous == this.current) {
+				$(this.items[this.current]).on('click', '.card', function(e){
+					$(this).toggleClass('flipped');
+					return false;
+					});
+				return false; 
+			} 
+			$(this.items[this.previous]).off('click', '.card');
+			$(this.items[this.current]).on('click', '.card', function(e){
+					$(this).toggleClass('flipped');
+					return false;
+					});
+			*/
 			//Overwrite $.fx.step.coverflow everytime again with custom scoped values for this specific animation
 			var self = this, to = Math.abs(self.previous-self.current) <=1 ? self.previous : self.current+(self.previous < self.current ? -1 : 1);
 			$.fx.step.coverflow = function(fx) { self._refresh(fx.now, to, self.current); };
@@ -98,8 +114,7 @@
 			// 3. Use our custom coverflow animation which animates the item
 
 			var animation = { coverflow: 1 };
-		
-		
+
 			animation[this.props[2]] = (
 				(this.options.recenter ? -this.current * this.itemSize/2 : 0)
 				+ (this.options.center ? this.element.parent()[0]['offset'+this.props[1]]/2 - this.itemSize/2 : 0) //Center the items container
@@ -116,6 +131,16 @@
 				easing: 'easeOutQuint'
 			});
 			
+		},
+		
+		flip: function(item, noPropagation){
+		
+			$(this.items[this.current]).find('.card').toggleClass('flipped');
+			var front = $(this.items[this.current]).find('.front');
+			//quick fix for firefox
+			if(front.css('z-index') == 0)
+				front.css('z-index','10');
+			else front.css('z-index','0');
 		},
 		
 		_refresh: function(state,from,to) {
@@ -159,7 +184,7 @@
 		
 		
 				}else{
-	
+					//alert('matrix(1,'+(mod * (side == 'right' ? -0.2 : 0.2))+',0,1,0,0) scale('+(1+((1-mod)*0.3)) + ')'); 
 					css[vendorPrefix + 'Transform'] = 'matrix(1,'+(mod * (side == 'right' ? -0.2 : 0.2))+',0,1,0,0) scale('+(1+((1-mod)*0.3)) + ')'; 
 					css[self.props[2]] = ( (-i * (self.itemSize/2)) + (side == 'right'? -self.itemSize/2 : self.itemSize/2) * mod );
 		

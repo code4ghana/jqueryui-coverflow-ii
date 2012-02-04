@@ -18,9 +18,9 @@ h1 {
 /* Site
    -------------------------------- */
 
-body {
+/*body {
 	font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
-}
+}*/
 
 
 /* Layout
@@ -370,7 +370,7 @@ div.wrapper {
 	margin-top: 50px;
 }
 
-#coverflow img {
+#coverflow .container {
 	width: 260px;
 	height: 260px;
 	float: left;
@@ -378,6 +378,12 @@ div.wrapper {
 	margin: -35px;
 	 -webkit-box-reflect: below 5px -webkit-gradient(linear, left top, left bottom, from(black), color-stop(.7, black), to(transparent));
 
+}
+
+#coverflow img {
+
+	width: 260px;
+	height: 260px;
 }
 
 #demo-frame {
