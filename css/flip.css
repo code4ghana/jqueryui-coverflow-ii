@@ -44,7 +44,7 @@
 		-webkit-transform: rotateY(180deg);
 		background: #a3a3a3; 
 	}
-		
+	/* fix for firefox*/
 .front{
 	z-index:10;
 }
