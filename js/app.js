@@ -160,7 +160,7 @@ $(function () {
         },
 
         init_mousewheel: function () {
-            $('body').mousewheel(function (event, delta) {
+            $('#coverflow').mousewheel(function (event, delta) {
 
                 var speed = 1,
                     sliderVal = coverflowApp.sliderCtrl.slider("value"),
@@ -187,7 +187,7 @@ $(function () {
         },
 
         init_keyboard: function () {
-            $(document).keydown(function (e) {
+            $('#coverflow').keydown(function (e) {
                 var current = coverflowApp.sliderCtrl.slider('value');
                 if (e.keyCode == 37) {
                     if (current > 0) {
