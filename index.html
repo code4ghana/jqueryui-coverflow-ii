@@ -7,15 +7,16 @@
 	<link type="text/css" href="css/jquery-ui-1.8.5.custom.css" rel="Stylesheet" />
 	
 	<!-- Include jQuery and UI -->
-	<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery-1.7.1.js"></script>
     <script type="text/javascript" src="js/jquery-ui-1.8.9.custom.min.js"></script>
-
+<script src="js/jquery-css-transform.js" type="text/javascript"></script>
+<script src="js/jquery-animate-css-rotate-scale.js" type="text/javascript"></script>
 		
 	<!-- Include jQuery CoverFlow widget -->
 	<script type="text/javascript" src="js/ui.coverflow.js"></script>
 
 	<link type="text/css" href="css/demos.css" rel="stylesheet" />
-	
+	<link type="text/css" href="css/flip.css" rel="stylesheet" />	
 	<!-- Transformie is a plugin that makes webkit's CSS transforms work in Internet Explorer -->
 	<script src="js/sylvester.js" type="text/javascript"></script>
 	<script src="js/transformie.js" type="text/javascript"></script>
@@ -24,8 +25,9 @@
 	<script src="js/jquery.mousewheel.min.js" type="text/javascript"></script>
 	<script src="js/app.js" type="text/javascript"></script>
 	<script type="text/javascript">
+	
+	
 	$(function(){	
-
 		
 		var demo = {
 
@@ -36,7 +38,7 @@
 					internal = null,
 					images	= null;
 					scrollable.hide();
-					images = scrollable.find('img');
+					images = scrollable.find('.container');
 					completed = 0;
 					
 					images.each(function(){
@@ -80,7 +82,6 @@
 		
 		demo.yScroll('#scroll-pane', 'ul#sortable');
 
-			
 	});
 	</script>
 	
@@ -91,23 +92,120 @@
 
 
 <div class="pageWrapper">
-	<h1>jQuery UI CSS3 CoverFlow 2.2 (Preview)</h1>
+	<h1>Vetrina interattiva</h1>
 	<div class="demo">
 
 		<div class="wrapper">
 			<div id="coverflow">
-	            <img src="img/gorillaz-plasticbeach.jpg" data-artist="Gorillaz" data-album="Plastic Beach"/>
-				<img src="img/kingsofleon-comearoundsunshine.jpg" data-artist="Kings Of Leon" data-album="Come Around Sunshine"/>
-				<img src="img/kidrock-bornfree.jpg" data-artist="Kid Rock" data-album="Born Free"/>		
-				<img src="img/recovery-recovery.jpg" data-artist="Eminem" data-album="Recovery"/>
-				<img src="img/lilwayne-iamnotahumanbeing.jpg" data-artist="Lil Wayne" data-album="I Am Not A Human Being"/>
-				<img src="img/taylorswift-speaknow.jpg" data-artist="Taylor Swift" data-album="Speak Now"/>
-				<img src="img/thebandperry-thebandperry.jpg" data-artist="The Band Perry" data-album="The Band Perry"/>
-				<img src="img/maroon5-handsallover.jpg" data-artist="Maroon 5" data-album="Hands All Over"/>
-				<img src="img/mychemicalromance-dangerdays.jpg" data-artist="My Chemical Romance" data-album="Danger Days"/>
-				<img src="img/ironmaiden-thefinalfrontier.jpg" data-artist="Iron Maiden" data-album="The Final Frontier"/>
-				<img src="img/order of the black - black label society.jpg" data-artist="Order Of The Black" data-album="Black Label Society"/>	
-				<img src="img/usher-raymondvraymond.jpg" data-artist="Usher" data-album="Raymond V Raymond"/>
+			
+				<div class="container megatron">
+					<div class="card">
+						<div class="face front">
+							<img src="img/gorillaz-plasticbeach.jpg" data-artist="Gorillaz" data-album="Plastic Beach"/>
+						</div>
+						<div class="face back">
+							<p></p>
+						</div>
+					</div>
+				</div>
+			
+				<div class="container megatron">
+					<div class="card">
+						<div class="face front">
+							<img src="img/kingsofleon-comearoundsunshine.jpg" data-artist="Kings Of Leon" data-album="Come Around Sunshine"/>
+						</div>
+						<div class="face back">
+							<p>Spettacolo!</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="container megatron">
+					<div class="card">
+						<div class="face front">
+							<img src="img/kidrock-bornfree.jpg" data-artist="Kid Rock" data-album="Born Free"/>
+						</div>
+						<div class="face back">
+							<p>Spettacolo!</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="container megatron">
+					<div class="card">
+						<div class="face front">
+							<img src="img/recovery-recovery.jpg" data-artist="Eminem" data-album="Recovery"/>
+						</div>
+						<div class="face back">
+							<p>Spettacolo!</p>
+						</div>
+					</div>
+				</div>
+				<div class="container megatron">
+					<div class="card">
+						<div class="face front">
+							<img src="img/lilwayne-iamnotahumanbeing.jpg" data-artist="Lil Wayne" data-album="I Am Not A Human Being"/>
+						</div>
+						<div class="face back">
+							<p>Spettacolo!</p>
+						</div>
+					</div>
+				</div>
+			
+				<div class="container megatron">
+					<div class="card">
+						<div class="face front">
+							<img src="img/maroon5-handsallover.jpg" data-artist="Maroon 5" data-album="Hands All Over"/>
+						</div>
+						<div class="face back">
+							<p>Spettacolo!</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="container megatron">
+					<div class="card">
+						<div class="face front">
+							<img src="img/mychemicalromance-dangerdays.jpg" data-artist="My Chemical Romance" data-album="Danger Days"/>
+						</div>
+						<div class="face back">
+							<p>Spettacolo!</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="container megatron">
+					<div class="card">
+						<div class="face front">
+							<img src="img/ironmaiden-thefinalfrontier.jpg" data-artist="Iron Maiden" data-album="The Final Frontier"/>
+						</div>
+						<div class="face back">
+							<p>Spettacolo!</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="container megatron">
+					<div class="card">
+						<div class="face front">
+							<img src="img/order of the black - black label society.jpg" data-artist="Order Of The Black" data-album="Black Label Society"/>
+						</div>
+						<div class="face back">
+							<p>Spettacolo!</p>
+						</div>
+					</div>
+				</div>
+			
+				<div class="container megatron">
+					<div class="card">
+						<div class="face front">
+							<img src="img/usher-raymondvraymond.jpg" data-artist="Usher" data-album="Raymond V Raymond"/>
+						</div>
+						<div class="face back">
+							<p>Spettacolo!</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 
@@ -123,7 +221,7 @@
 		<div class="demo-description">
 		</div>
 
-		<div class="listholder">
+		<!--<div class="listholder">
 		<div id="scroll-pane">
 		    <ul id="sortable"> 
 		    </ul>
@@ -132,9 +230,9 @@
 		<div id="slider-wrap">
 		<div id="slider-vertical"></div>
 	</div>
-</div>
+</div>-->
 
-<div class="pageInfo"> 
+<!--<div class="pageInfo"> 
  Interaction supported: Cover-click, Slider, Playlist-click, Bi-Directional Keyboard Navigation, Mouse-Slide, MouseWheel.
  
  
@@ -142,7 +240,7 @@
 					<p><span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-info"></span>
 					  Compatible with jQueryUI 1.8.9 and jQuery 1.6.2+
 					</p>
-  </div>
+  </div>-->
 				
 				
 </div>

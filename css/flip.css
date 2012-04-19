@@ -1,0 +1,54 @@
+.container {
+		width: 260px;
+	height: 260px;
+	-webkit-perspective: 1000;
+}
+
+.card {
+	width: 260px;
+	height: 260px;
+	border: 8px solid #fff;	
+	-webkit-transform-style: preserve-3d;
+	-webkit-transition: 0.5s;
+
+}
+	/*.container:hover .card {
+		-webkit-transform: rotateY(180deg);
+		transform: rotateY( 180deg );
+		}*/
+	.flipped {
+      -webkit-transform: rotateY(180deg);
+    }
+	
+.card p {
+	font-family: Helvetica, Arial, Sans-Serif;
+	font-size: 35px; line-height: 28px; color: #4c4c4c;
+	text-shadow: 0 3px 3px #333; margin: 50px 0 0 0; text-align: center;
+}
+.face {
+	position: absolute;
+	-webkit-backface-visibility: hidden;
+}
+
+
+.megatron {
+	float: left; position: absolute; top: 30px; left: 20px;
+	
+}
+	.megatron .front {
+		
+	}
+	.megatron .back {
+		width: 260px;
+		height: 260px; 
+		-webkit-transform: rotateY(180deg);
+		background: #a3a3a3; 
+	}
+	/* fix for firefox*/
+.front{
+	z-index:10;
+}
+
+/*.container:hover .front{
+	z-index:0;
+}*/

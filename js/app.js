@@ -147,7 +147,10 @@ $(function () {
             var refreshedItems = $('.demo .coverflowItem');
             return refreshedItems;
         },
-
+		flip: function(itemNumber){
+			this.coverflowCtrl.coverflow('flip', itemNumber, true);
+		
+		},
         skipTo: function (itemNumber) {
 
             var items = $('.coverflowItem');
@@ -189,19 +192,23 @@ $(function () {
         init_keyboard: function () {
             $('#coverflow').keydown(function (e) {
                 var current = coverflowApp.sliderCtrl.slider('value');
+				//alert(e.keyCode);
                 if (e.keyCode == 37) {
                     if (current > 0) {
                         current--;
                         coverflowApp.skipTo(current);
                     }
-                } else {
-                    if (e.keyCode == 39) {
+                } else if (e.keyCode == 39) {
                         if (current < $('#coverflow > *').length - 1) {
                             current++;
                             coverflowApp.skipTo(current);
                         }
-                    }
-                }
+				} else if (e.keyCode == 70) {
+					//if(current > 0 && current < $('#coverflow > *').length - 1){
+						coverflowApp.flip(current);
+					//}
+				
+				}
 
 
             })
