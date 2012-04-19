@@ -61,7 +61,7 @@
 
 			//Bind click events on individual items
 			this.items.bind(o.trigger, function() {
-				self.select(this);
+			    self.select(this,false);
 				
 			});
 
@@ -87,6 +87,7 @@
 			//alert(this.previous +" : " + this.current);
 			//Don't animate when clicking on the same item
 			if(this.previous == this.current){
+			    if(!noPropagation) this._trigger('select', null, this._uiHash());
 				return false;
 			}
 			//Removing flipped class if present

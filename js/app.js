@@ -55,7 +55,12 @@ $(function () {
             this.coverflowCtrl.coverflow({
                 item: coverflowApp.defaultItem,
                 duration: 1200,
-                select: function (event, sky) {
+		select: function (event, sky) {
+		    //    if(sky.value==coverflowApp.defaultItem){
+		//	coverflowApp.flip(defaultItem);
+		//	return;
+		   // }
+		    coverflowApp.flip(sky.value);
                     coverflowApp.skipTo(sky.value);
                 }
             });
@@ -79,6 +84,7 @@ $(function () {
             //this.init_slider($("#slider-vertical"), 'vertical');
             //change the main div to overflow-hidden as we can use the slider now
             this.scrollPane.css('overflow', 'hidden');
+	    
 
             //calculate the height that the scrollbar handle should be
             this.difference = this.sortable.height() - this.scrollPane.height(); //eg it's 200px longer 
@@ -147,10 +153,12 @@ $(function () {
             var refreshedItems = $('.demo .coverflowItem');
             return refreshedItems;
         },
-		flip: function(itemNumber){
-			this.coverflowCtrl.coverflow('flip', itemNumber, true);
+	flip: function(itemNumber){
+	    var current= coverflowApp.sliderCtrl.slider('value');
+	    if(itemNumber==current)
+	    this.coverflowCtrl.coverflow('flip', itemNumber, true);
 		
-		},
+	},
         skipTo: function (itemNumber) {
 
             var items = $('.coverflowItem');
@@ -163,7 +171,7 @@ $(function () {
         },
 
         init_mousewheel: function () {
-            $('#coverflow').mousewheel(function (event, delta) {
+            $("body").mousewheel(function (event, change) {
 
                 var speed = 1,
                     sliderVal = coverflowApp.sliderCtrl.slider("value"),
@@ -172,10 +180,10 @@ $(function () {
                     leftValue = 0;
 
                 //check the deltas to find out if the user has scrolled up or down 
-                if (delta > 0 && sliderVal > 0) {
+                if (change > 0 && sliderVal > 0) {
                     sliderVal -= 1;
                 } else {
-                    if (delta < 0 && sliderVal < cflowlength) {
+                    if (change < 0 && sliderVal < cflowlength) {
                         sliderVal += 1;
                     }
                 }
@@ -190,7 +198,7 @@ $(function () {
         },
 
         init_keyboard: function () {
-            $('#coverflow').keydown(function (e) {
+            $(document).keydown(function (e) {
                 var current = coverflowApp.sliderCtrl.slider('value');
 				//alert(e.keyCode);
                 if (e.keyCode == 37) {
@@ -213,6 +221,7 @@ $(function () {
 
             })
         },
+
 
         generateList: function () {
             this.coverflowImages.each(function (index, value) {
